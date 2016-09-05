@@ -59,7 +59,7 @@ class Events extends \yii\base\Object
 
         $canRegister = \humhub\models\Setting::Get('anonymousRegistration', 'authentication_internal');
 
-        if(!empty($event->sender) && $event->sender->className() == CustomAccountRegisterForm::className() && !empty($event->sender->email)) {
+        if(!empty($event->sender) && ($event->sender->className() != CustomAccountRegisterForm::className() || empty($event->sender->email))) {
             $event->isValid = false;
             return Yii::$app->getResponse()->redirect(Url::to(['/email_whitelist/denied/index']));
         }
