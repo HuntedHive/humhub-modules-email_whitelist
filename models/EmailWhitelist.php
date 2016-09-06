@@ -81,7 +81,7 @@ class EmailWhitelist extends ActiveRecord
 	/**
 	 * Returns a list of whitelisted domains
 	 */
-	public function toArray()
+	public function getArray(array $fields = [], array $expand = [], $recursive = true)
 	{
 
 		$whitelist = array();
@@ -102,7 +102,9 @@ class EmailWhitelist extends ActiveRecord
 	public static function emailIsAllowed($email)
 	{
 		$allowed = self::toArray();
-		$domain = strtolower(array_pop(@explode('@', $email)));
+		$domain = explode('@', $email);
+		$domain = array_pop($domain);
+		$domain = strtolower($domain);
 		if (in_array($domain, $allowed)) { // email not whitelisted
 			return true;
 		} else {
