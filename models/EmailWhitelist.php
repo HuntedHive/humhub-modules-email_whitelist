@@ -79,37 +79,36 @@ class EmailWhitelist extends ActiveRecord
 
 
 	/**
-	 * Returns a list of whitelisted domains
-	 */
-	public function getArray(array $fields = [], array $expand = [], $recursive = true)
-	{
+         * Returns a list of whitelisted domains
+         */
+        public static function getWhitelists()
+        {
 
-		$whitelist = array();
+                $whitelist = array();
 
-		foreach(EmailWhitelist::find()->all() as $row) {
-			$whitelist[] = strtolower($row['domain']);
-		}
+                foreach(EmailWhitelist::find()->all() as $row) {
+                        $whitelist[] = strtolower($row['domain']);
+                }
 
-		return $whitelist;
-	}
+                return $whitelist;
+        }
 
-	/**
-	 * Checks to see if an email is
-	 * in the whitelist
-	 * @param string $email
-	 * @return bool
-	 */
-	public static function emailIsAllowed($email)
-	{
-		$allowed = self::toArray();
+        /**
+         * Checks to see if an email is
+         * in the whitelist
+         * @param string $email
+         * @return bool
+         */
+        public static function emailIsAllowed($email)
+        {
+                $allowed = self::getWhitelists();
 		$domain = explode('@', $email);
-		$domain = array_pop($domain);
-		$domain = strtolower($domain);
-		if (in_array($domain, $allowed)) { // email not whitelisted
-			return true;
-		} else {
-			return false;
-		}
-	}
-
+                $domain = array_pop($domain);
+                $domain = strtolower($domain);
+                if (in_array($domain, $allowed)) { // email not whitelisted
+                        return true;
+                } else {
+                        return false;
+                }
+        }
 }
