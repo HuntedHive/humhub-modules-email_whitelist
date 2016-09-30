@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Connected Communities Initiative
  * Copyright (C) 2016  Queensland University of Technology
@@ -15,6 +16,12 @@
  *
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ *
+ * @link https://www.humhub.org/
+ * @copyright Copyright (c) 2015 HumHub GmbH & Co. KG
+ * @license https://www.humhub.org/licences GNU AGPL v3
+ *
  */
 
 use humhub\components\Migration;
