@@ -35,15 +35,24 @@ use yii\data\ActiveDataProvider;
             </li>
         </ul>
         <br />
-        <p>Enabling this module will force Humhub to only accept registrations from users with an email that matches a domain from this list.<p />
-
-        <p><b>Example</b><br />Domain: gmail.com
+        <p>Enabling this module will force Humhub to only accept registrations from users with an e-mail that matches a domain from this list,
+            </b> or the user whose e-mail was explicitly added to the whitelist.</p>
+        <br>
+        <p><b>Example 1</b><br />Domain: gmail.com
         <table>
         	<tr>
         		<td><b>Registration Accepted</b><br />Email: ben@gmail.com</td>
         		<td style="padding-left:20px;"><b>Registration Rejected</b><br />Email: ben@example.com</td>
     		</tr>
 		</table>
+        <br><br>
+        <p><b>Example 2</b><br />e-mail: ben@gmail.com
+        <table>
+            <tr>
+                <td><b>Registration Accepted</b><br />Email: ben@gmail.com</td>
+                <td style="padding-left:20px;"><b>Registration Rejected</b><br />Email: adam@gmail.com</td>
+            </tr>
+        </table>
 		</p>
 
         <?php
