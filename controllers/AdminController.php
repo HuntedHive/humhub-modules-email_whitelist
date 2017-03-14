@@ -125,7 +125,7 @@ class AdminController extends \humhub\modules\admin\components\Controller
         // Define Form Eleements
         $definition['elements']['EmailWhitelist'] = array(
             'type' => 'form',
-            'title' => 'Domain',
+            'title' => 'Domain / e-mail',
             'elements' => array(
                 'domain' => array(
                     'type' => 'text',
